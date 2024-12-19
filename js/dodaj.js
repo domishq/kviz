@@ -89,47 +89,47 @@ function dodajKvizLS(kviz) {
 }
 
 function dodajPitanje() {
-  questionsContainer.innerHTML += `
-          <div class="flex flex-col gap-4">
-            <div class="flex gap-8">
-              <label for="question${totalQuestions}">${
-    totalQuestions + 1
-  }) Pitanje </label>
+  const newHtml = `
+ <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <label for="question${totalQuestions}" class="text-gray-700 font-medium"
+                >${totalQuestions + 1}) Pitanje</label
+              >
               <textarea
                 type="text"
                 name="question${totalQuestions}"
                 id="question${totalQuestions}"
-                class="w-[300px] h-100px"
-                placeholder="npr. 'Koliko je 2+2?'"
+                class="border border-gray-300 rounded-md px-3 py-2 h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
-            <div class="flex gap-8">
-              <span>Odgovori</span>
-              <div class="flex gap-1">
+
+            <div class="flex flex-col gap-2">
+              <span class="text-gray-700 font-medium">Odgovori</span>
+              <div class="grid grid-cols-2 gap-3">
                 <input
                   type="text"
-                  class="border-2 border-green-600"
+                  class="border border-green-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                   name="question${totalQuestions}answer0"
                   id="question${totalQuestions}answer0"
                   placeholder="4"
                 />
                 <input
                   type="text"
-                  class="border-2 border-red-600"
+                  class="border border-red-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
                   name="question${totalQuestions}answer1"
                   id="question${totalQuestions}answer1"
                   placeholder="8"
                 />
                 <input
                   type="text"
-                  class="border-2 border-red-600"
+                  class="border border-red-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
                   name="question${totalQuestions}answer2"
                   id="question${totalQuestions}answer2"
                   placeholder="2"
                 />
                 <input
                   type="text"
-                  class="border-2 border-red-600"
+                  class="border border-red-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
                   name="question${totalQuestions}answer3"
                   id="question${totalQuestions}answer3"
                   placeholder="3"
@@ -138,5 +138,6 @@ function dodajPitanje() {
             </div>
           </div>
   `;
+  questionsContainer.insertAdjacentHTML("beforeend", newHtml);
   totalQuestions++;
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Kvizaš</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style.css" />
     <link
@@ -11,18 +11,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
-  <body class="bg-gray-300 px-5">
-    <header class="flex items-center mt-5 justify-center relative">
-      <a href="../" class="flex items-center gap-4 absolute left-0">
-        <img
-          src="../images/arrowLeft.png"
-          alt="arrowLeft"
-          class="aspect-square w-10"
-        />
-        <p class="text-2xl">Nazad</p>
+  <body class="bg-gray-100 px-5">
+    <header class="flex items-center justify-between mb-10 mt-4">
+      <a
+        href="../"
+        class="flex items-center gap-3 text-gray-700 hover:text-gray-900"
+      >
+        <img src="../../images/arrowLeft.png" alt="Back" class="w-8 h-8" />
+        <p class="text-lg font-medium">Nazad</p>
       </a>
-      <img src="../images/logo.png" alt="logo" class="aspect-auto h-10" />
-      <a href="./dodaj" class="flex absolute right-0">
+      <img src="../../images/logo.png" alt="Logo" class="h-0 sm:h-8 md:h-12" />
+      <a href="dodaj" class="flex">
         <button
           class="flex items-center justify-center bg-white aspect-square w-14 rounded-md gap-2"
         >
@@ -36,17 +35,22 @@
       style="display: none"
       id="imaKvizovaPoruka"
     >
-      <h1 class="text-5xl font-bold">Svi kvizovi</h1>
-      <div class="flex gap-8 mt-[50px]" id="kvizoviList"></div>
+      <h1 class="text-5xl font-bold text-gray-800">Svi kvizovi</h1>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        id="kvizoviList"
+      ></div>
     </section>
 
     <div
-      class="flex flex-col gap-8 w-full h-screen justify-center items-center"
+      class="flex flex-col gap-6 w-full h-screen justify-center items-center text-center"
       id="nemaKvizovaPoruka"
+      style="display: none"
     >
-      <h1 class="font-bold text-8xl">Trenutno nema kvizova</h1>
-      <h2 class="font-semibold text-5xl">
-        Kliknite na plus u gornjem desnom cosku da dodate kurseve
+      <h1 class="font-bold text-5xl text-gray-800">Trenutno nema kvizova</h1>
+      <h2 class="font-medium text-2xl text-gray-600 max-w-[600px]">
+        Kliknite na <span class="font-semibold">plus</span> u gornjem desnom
+        ćošku da dodate kurseve.
       </h2>
     </div>
   </body>
