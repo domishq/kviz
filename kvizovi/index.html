@@ -12,7 +12,7 @@
     />
   </head>
   <body class="bg-gray-300 px-5">
-    <header class="flex relative justify-center mt-5">
+    <header class="flex items-center mt-5 justify-center relative">
       <a href="../" class="flex items-center gap-4 absolute left-0">
         <img
           src="../images/arrowLeft.png"
@@ -22,7 +22,15 @@
         <p class="text-2xl">Nazad</p>
       </a>
       <img src="../images/logo.png" alt="logo" class="aspect-auto h-10" />
+      <a href="./dodaj" class="flex absolute right-0">
+        <button
+          class="flex items-center justify-center bg-white aspect-square w-14 rounded-md gap-2"
+        >
+          <i class="fa fa-plus text-xl"></i>
+        </button>
+      </a>
     </header>
+
     <section class="flex flex-col max-w-[1440px] mt-[64px] gap-8">
       <h1 class="text-5xl">Lista kvizova</h1>
       <table id="kvizoviTable">
@@ -56,5 +64,6 @@
       </table>
     </section>
   </body>
+  <script src="../js/app.js"></script>
   <script src="../js/kvizovi.js"></script>
 </html>
