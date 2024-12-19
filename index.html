@@ -7,13 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="bg-gray-300">
     <div
-      class="w-full flex flex-col h-screen bg-gray-300 items-center justify-center"
+      class="w-full flex flex-col h-screen bg-gray-300 items-center justify-center gap-32"
     >
       <img src="images/logo.png" alt="logo" />
-      <button class="button bg-gray-500">Kvizovi</button>
+      <a href="kvizovi">
+        <button
+          class="button bg-white text-5xl rounded-md px-14 py-8"
+          id="kvizoviBtn"
+        >
+          kvizovi
+        </button>
+      </a>
     </div>
   </body>
-  <script src="app.js"></script>
+  <script src="/js/app.js"></script>
 </html>

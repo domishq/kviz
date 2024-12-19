@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-300 px-5">
+    <header class="flex relative justify-center mt-5">
+      <a href="../" class="flex items-center gap-4 absolute left-0">
+        <img
+          src="../images/arrowLeft.png"
+          alt="arrowLeft"
+          class="aspect-square w-10"
+        />
+        <p class="text-2xl">Nazad</p>
+      </a>
+      <img src="../images/logo.png" alt="logo" class="aspect-auto h-10" />
+    </header>
+    <section class="flex flex-col max-w-[1440px] mt-[64px] gap-8">
+      <h1 class="text-5xl">Lista kvizova</h1>
+      <table id="kvizoviTable">
+        <thead>
+          <tr>
+            <th>Ime</th>
+            <th>Broj pitanja</th>
+            <th>Odigrano</th>
+            <th>Akcije</th>
+          </tr>
+        </thead>
+        <tbody id="kvizoviTableBody">
+          <tr>
+            <td>Example name</td>
+            <td>1</td>
+            <td>10</td>
+            <td class="flex gap-2 justify-center">
+              <button
+                class="flex bg-white w-10 h-10 justify-center items-center rounded-md"
+              >
+                <i class="fa fa-trash-can"></i>
+              </button>
+              <button
+                class="flex bg-white w-10 h-10 justify-center items-center rounded-md"
+              >
+                <i class="fa fa-pencil"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+  <script src="../js/kvizovi.js"></script>
+</html>
