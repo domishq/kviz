@@ -5,8 +5,8 @@ let formInputs = document.querySelectorAll("input"),
   addQuestionBtn = document.getElementById("addQuestionBtn"),
   form = document.getElementById("dodajForm"),
   questionsContainer = document.getElementById("questionsContainer"),
+  descriptionInput = document.getElementById("description"),
   nameInput = document.getElementById("name");
-
 let totalQuestions = 0;
 
 let params = new URLSearchParams(window.location.search);
@@ -71,6 +71,7 @@ function prikupiPodatkeIzForme() {
     return {
       id: kvizId,
       name: nameInput.value,
+      description: descriptionInput.value,
       questions: questions,
       questionCount: questions.length,
       playedCount: 0,

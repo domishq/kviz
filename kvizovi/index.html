@@ -31,40 +31,24 @@
       </a>
     </header>
 
-    <section class="flex flex-col max-w-[1440px] mt-[64px] gap-8">
-      <h1 class="text-5xl">Lista kvizova</h1>
-      <table id="kvizoviTable">
-        <thead>
-          <tr>
-            <th>Ime</th>
-            <th>Broj pitanja</th>
-            <th>Odigrano</th>
-            <th>Akcije</th>
-          </tr>
-        </thead>
-        <tbody id="kvizoviTableBody">
-          <!--
-            <tr>
-              <td>Example name</td>
-              <td>1</td>
-              <td>10</td>
-              <td class="flex gap-2 justify-center">
-                <button
-                  class="flex bg-white w-10 h-10 justify-center items-center rounded-md"
-                >
-                  <i class="fa fa-trash-can"></i>
-                </button>
-                <button
-                  class="flex bg-white w-10 h-10 justify-center items-center rounded-md"
-                >
-                  <i class="fa fa-pencil"></i>
-                </button>
-              </td>
-            </tr>
-          -->
-        </tbody>
-      </table>
+    <section
+      class="flex flex-col max-w-[1440px] mt-[64px] gap-8"
+      style="display: none"
+      id="imaKvizovaPoruka"
+    >
+      <h1 class="text-5xl font-bold">Svi kvizovi</h1>
+      <div class="flex gap-8 mt-[50px]" id="kvizoviList"></div>
     </section>
+
+    <div
+      class="flex flex-col gap-8 w-full h-screen justify-center items-center"
+      id="nemaKvizovaPoruka"
+    >
+      <h1 class="font-bold text-8xl">Trenutno nema kvizova</h1>
+      <h2 class="font-semibold text-5xl">
+        Kliknite na plus u gornjem desnom cosku da dodate kurseve
+      </h2>
+    </div>
   </body>
   <script src="../js/app.js"></script>
   <script src="../js/kvizovi.js"></script>

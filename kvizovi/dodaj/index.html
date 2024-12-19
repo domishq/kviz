@@ -25,9 +25,17 @@
     </header>
 
     <form action="" id="dodajForm" class="flex flex-col gap-4 mt-[100px]">
-      <div>
+      <div class="flex gap-[67px]">
         <label for="name">Ime kviza</label>
         <input id="name" type="text" name="name" />
+      </div>
+      <div class="flex gap-[100px]">
+        <label for="name">Opis</label>
+        <textarea
+          name="description"
+          id="description"
+          class="w-[300px] h-100px"
+        ></textarea>
       </div>
       <div>
         <h2 class="font-semibold text-2xl">Pitanja</h2>

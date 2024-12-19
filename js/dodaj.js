@@ -5,7 +5,8 @@ let formInputs = document.querySelectorAll("input"),
   addQuestionBtn = document.getElementById("addQuestionBtn"),
   form = document.getElementById("dodajForm"),
   questionsContainer = document.getElementById("questionsContainer"),
-  nameInput = document.getElementById("name");
+  nameInput = document.getElementById("name"),
+  descriptionInput = document.getElementById("description");
 
 let totalQuestions = 0;
 
@@ -48,6 +49,7 @@ function prikupiPodatkeIzForme() {
     return {
       id: kvizID,
       name: nameInput.value,
+      description: descriptionInput.value,
       questions: questions,
       questionCount: questions.length,
       playedCount: 0,
@@ -60,6 +62,7 @@ function prikupiPodatkeIzForme() {
 // Reset forme
 function resetform() {
   formInputs.forEach((input) => (input.value = ""));
+  descriptionInput.value = "";
   for (let i = 0; i < totalQuestions; i++) {
     document.getElementById("question" + i).value = "";
 
