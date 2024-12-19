@@ -12,7 +12,6 @@
     />
   </head>
   <body class="bg-gray-300 px-5">
-
     <header class="flex items-center mt-5 justify-center relative">
       <a href="../" class="flex items-center gap-4 absolute left-0">
         <img
@@ -26,13 +25,71 @@
     </header>
 
     <form action="" id="dodajForm" class="flex flex-col gap-4 mt-[100px]">
-        <div>
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" />
+      </div>
+      <div>
+        <h2 class="font-semibold text-2xl">Pitanja</h2>
+        <div id="questionsContainer" class="flex flex-col gap-8">
+          <!--
+            <div class="flex flex-col gap-4">
+              <div class="flex gap-8">
+                <label for="question0">1) Pitanje </label>
+                <textarea
+                  type="text"
+                  name="question0"
+                  id="question0"
+                  class="w-[300px] h-100px"
+                ></textarea>
+              </div>
+              <div class="flex gap-8">
+                <span>Odgovori</span>
+                <div class="flex gap-1">
+                  <input
+                    type="text"
+                    class="border-2 border-green-600"
+                    name=""
+                    id=""
+                  />
+                  <input
+                    type="text"
+                    class="border-2 border-red-600"
+                    name=""
+                    id=""
+                  />
+                  <input
+                    type="text"
+                    class="border-2 border-red-600"
+                    name=""
+                    id=""
+                  />
+                  <input
+                    type="text"
+                    class="border-2 border-red-600"
+                    name=""
+                    id=""
+                  />
+                </div>
+              </div>
+            </div>
+          -->
         </div>
-        <div class="flex justify-center">
-            <button type="button" id="dodajBtn" class="px-20 py-4 bg-white rounded-lg">Dodaj</button>
-        </div>
+        <button type="button" id="addQuestionBtn">
+          <i
+            class="fa fa-plus aspect-square bg-white w-10 flex justify-center items-center rounded-md"
+          ></i>
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <button
+          type="button"
+          id="dodajBtn"
+          class="px-20 py-4 bg-white rounded-lg"
+        >
+          Dodaj
+        </button>
+      </div>
     </form>
   </body>
   <script src="../../js/app.js"></script>

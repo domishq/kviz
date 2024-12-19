@@ -3,7 +3,7 @@ let kvizoviTableBody = document.getElementById("kvizoviTableBody");
 let kvizovi = [];
 
 window.addEventListener("DOMContentLoaded", () => {
-  initTable()
+  initTable();
 });
 
 function createTableRow(kviz) {
@@ -31,8 +31,10 @@ function createTableRow(kviz) {
     `;
 }
 
-function initTable(){
+function initTable() {
   kvizovi = provjeriLS();
 
-  kvizovi.forEach(kviz => createTableRow(kviz))
+  kvizovi.forEach((kviz) => createTableRow(kviz));
 }
+
+function obrisiKviz(id) {}
