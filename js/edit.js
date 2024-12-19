@@ -9,10 +9,39 @@ let formInputs = document.querySelectorAll("input"),
 
 let totalQuestions = 0;
 
+let params = new URLSearchParams(window.location.search);
+let kvizId = params.get("id");
+let kvizIndex = -1;
+
 window.addEventListener("DOMContentLoaded", () => {
+  initPage();
   dodajBtn.addEventListener("click", dodajKviz);
   addQuestionBtn.addEventListener("click", dodajPitanje);
 });
+
+function initPage() {
+  let kvizovi = provjeriLS();
+  kvizIndex = kvizovi.findIndex((kviz) => kviz.id == kvizId);
+  let kviz = kvizovi[kvizIndex];
+
+  nameInput.value = kviz.name;
+
+  kviz.questions.forEach((question, index) => {
+    dodajPitanje();
+    document.getElementById("question" + index).value = question.title;
+
+    document.getElementById("question" + index + "answer0").value =
+      question.answers[0];
+    document.getElementById("question" + index + "answer1").value =
+      question.answers[1];
+    document.getElementById("question" + index + "answer2").value =
+      question.answers[2];
+    document.getElementById("question" + index + "answer3").value =
+      question.answers[3];
+  });
+
+  totalQuestions = kviz.questions.length;
+}
 
 // Provjera inputa
 function provjeriInpute() {
@@ -25,12 +54,6 @@ function provjeriInpute() {
 // Prikupljanje podataka iz forme
 function prikupiPodatkeIzForme() {
   // Preuzmi laptope iz LocalStorage
-  let kvizovi = provjeriLS();
-
-  // Pronađi najveći postojeći ID i uvećaj ga
-  let kvizID =
-    kvizovi.length > 0 ? Math.max(...kvizovi.map((kviz) => kviz.id)) + 1 : 1;
-
   let questions = [];
   for (let i = 0; i < totalQuestions; i++) {
     questions.push({
@@ -46,7 +69,7 @@ function prikupiPodatkeIzForme() {
 
   if (provjeriInpute()) {
     return {
-      id: kvizID,
+      id: kvizId,
       name: nameInput.value,
       questions: questions,
       questionCount: questions.length,
@@ -57,36 +80,22 @@ function prikupiPodatkeIzForme() {
   }
 }
 
-// Reset forme
-function resetform() {
-  formInputs.forEach((input) => (input.value = ""));
-  for (let i = 0; i < totalQuestions; i++) {
-    document.getElementById("question" + i).value = "";
-
-    document.getElementById("question" + i + "answer0").value = "";
-    document.getElementById("question" + i + "answer1").value = "";
-    document.getElementById("question" + i + "answer2").value = "";
-    document.getElementById("question" + i + "answer3").value = "";
-  }
-}
-
 function dodajKviz(e) {
   e.preventDefault();
   const kviz = prikupiPodatkeIzForme();
   if (kviz) {
     dodajKvizLS(kviz);
   }
-  resetform();
 }
 
 function dodajKvizLS(kviz) {
   let kvizovi = provjeriLS();
-  kvizovi.push(kviz);
+  kvizovi[kvizIndex] = kviz;
   localStorage.setItem("kvizovi", JSON.stringify(kvizovi));
 }
 
 function dodajPitanje() {
-  questionsContainer.innerHTML += `
+  const newHtml = `
           <div class="flex flex-col gap-4">
             <div class="flex gap-8">
               <label for="question${totalQuestions}">${
@@ -135,5 +144,7 @@ function dodajPitanje() {
             </div>
           </div>
   `;
+
+  questionsContainer.insertAdjacentHTML("beforeend", newHtml);
   totalQuestions++;
 }

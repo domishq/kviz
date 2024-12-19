@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function createTableRow(kviz) {
   kvizoviTableBody.innerHTML += `
-    <tr>
+    <tr id="row${kviz.id}">
         <td>${kviz.name}</td>
         <td>${kviz.questionCount}</td>
         <td>${kviz.playedCount}</td>
@@ -37,4 +37,21 @@ function initTable() {
   kvizovi.forEach((kviz) => createTableRow(kviz));
 }
 
-function obrisiKviz(id) {}
+function deleteKviz(id) {
+  kvizovi = provjeriLS();
+  let kviz = kvizovi.find((kviz) => kviz.id === id);
+  if (
+    kviz &&
+    confirm("Jeste li sigurni da zelite obrisati kviz '" + kviz.name + "'")
+  ) {
+    kvizovi = kvizovi.filter((kviz) => kviz.id !== id);
+
+    localStorage.setItem("kvizovi", JSON.stringify(kvizovi));
+
+    document.getElementById("row" + id).remove();
+  }
+}
+
+function editKviz(id) {
+  window.location.href += "edit/?id=" + id;
+}
